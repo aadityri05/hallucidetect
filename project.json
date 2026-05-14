@@ -1,0 +1,23 @@
+{
+  "overview": "An AI-powered web app that analyzes text for hallucinations and trustworthiness. Users paste AI-generated content and get a Trust Score, Hallucination Risk level, highlighted suspicious sentences, confidence charts, and fake citation detection — all powered by NLP via external AI services.",
+  "features": [
+    "Trust Score (0-100%) with visual indicator",
+    "Hallucination Risk badge — Low, Medium, or High",
+    "Suspicious sentence highlighting with per-sentence confidence",
+    "Fake citation detection and explanation",
+    "Confidence bar chart and risk distribution pie chart",
+    "Explainability tooltips for all key metrics",
+    "Sample test examples with one-click loading",
+    "Dark and light mode support"
+  ],
+  "category": "tool",
+  "tags": [
+    "ai",
+    "nlp",
+    "hallucination-detection",
+    "trust-score",
+    "text-analysis",
+    "machine-learning"
+  ],
+  "last_updated": "2026-05-14T08:42:31.909Z"
+}

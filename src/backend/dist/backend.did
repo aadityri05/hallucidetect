@@ -1,0 +1,58 @@
+type http_request_result = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type http_header = 
+ record {
+   name: text;
+   value: text;
+ };
+type TransformationOutput = 
+ record {
+   body: blob;
+   headers: vec http_header;
+   status: nat;
+ };
+type TransformationInput = 
+ record {
+   context: blob;
+   response: http_request_result;
+ };
+type SuspiciousSentence = 
+ record {
+   confidence: nat;
+   riskLevel: RiskLevel;
+   sentence: text;
+ };
+type RiskLevel = 
+ variant {
+   High;
+   Low;
+   Medium;
+ };
+type Citation = 
+ record {
+   citationText: text;
+   explanation: text;
+   isFake: bool;
+ };
+type AnalysisResult = 
+ record {
+   analysisExplanation: text;
+   citations: vec Citation;
+   overallConfidence: nat;
+   riskLevel: RiskLevel;
+   suspiciousSentences: vec SuspiciousSentence;
+   trustScore: nat;
+ };
+type AnalysisResponse = 
+ variant {
+   err: text;
+   ok: AnalysisResult;
+ };
+service : {
+  analyzeForHallucination: ("text": text) -> (AnalysisResponse);
+  transform: (input: TransformationInput) -> (TransformationOutput) query;
+}
